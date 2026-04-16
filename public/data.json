@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "name": "Ayesha Rahman",
+    "picture": "https://randomuser.me/api/portraits/women/65.jpg",
+    "email": "ayesha.rahman@gmail.com",
+    "days_since_contact": 18,
+    "status": "overdue",
+    "tags": ["school friend", "best friend"],
+    "bio": "My school best friend. We studied together and still talk about old memories.",
+    "goal": 14,
+    "next_due_date": "2026-04-10"
+  },
+  {
+    "id": 2,
+    "name": "Tanvir Hossain",
+    "picture": "https://randomuser.me/api/portraits/men/32.jpg",
+    "email": "tanvir.hossain@gmail.com",
+    "days_since_contact": 5,
+    "status": "on-track",
+    "tags": ["college", "coding buddy"],
+    "bio": "College friend who helps me with programming assignments and projects.",
+    "goal": 10,
+    "next_due_date": "2026-04-18"
+  },
+  {
+    "id": 3,
+    "name": "Nusrat Jahan",
+    "picture": "https://randomuser.me/api/portraits/women/44.jpg",
+    "email": "nusrat.jahan@gmail.com",
+    "days_since_contact": 12,
+    "status": "almost due",
+    "tags": ["university", "study partner"],
+    "bio": "Met at university. We often study together in the library.",
+    "goal": 14,
+    "next_due_date": "2026-04-14"
+  },
+  {
+    "id": 4,
+    "name": "Rakibul Islam",
+    "picture": "https://randomuser.me/api/portraits/men/41.jpg",
+    "email": "rakibul.islam@gmail.com",
+    "days_since_contact": 22,
+    "status": "overdue",
+    "tags": ["gym", "fitness buddy"],
+    "bio": "Gym partner and motivation buddy. We push each other to stay fit.",
+    "goal": 7,
+    "next_due_date": "2026-04-05"
+  },
+  {
+    "id": 5,
+    "name": "Mim Akter",
+    "picture": "https://randomuser.me/api/portraits/women/22.jpg",
+    "email": "mim.akter@gmail.com",
+    "days_since_contact": 3,
+    "status": "on-track",
+    "tags": ["childhood", "close friend"],
+    "bio": "Childhood friend from our neighborhood. Still very close.",
+    "goal": 14,
+    "next_due_date": "2026-04-20"
+  },
+  {
+    "id": 6,
+    "name": "Siam Ahmed",
+    "picture": "https://randomuser.me/api/portraits/men/55.jpg",
+    "email": "siam.ahmed@gmail.com",
+    "days_since_contact": 9,
+    "status": "almost due",
+    "tags": ["developer", "tech friend"],
+    "bio": "Met through a coding community. We often discuss web development.",
+    "goal": 10,
+    "next_due_date": "2026-04-15"
+  },
+  {
+    "id": 7,
+    "name": "Farhana Islam",
+    "picture": "https://randomuser.me/api/portraits/women/68.jpg",
+    "email": "farhana.islam@gmail.com",
+    "days_since_contact": 1,
+    "status": "on-track",
+    "tags": ["university", "study group"],
+    "bio": "Study group partner. Always helps with exam preparation.",
+    "goal": 7,
+    "next_due_date": "2026-04-16"
+  },
+  {
+    "id": 8,
+    "name": "Mehedi Hasan",
+    "picture": "https://randomuser.me/api/portraits/men/18.jpg",
+    "email": "mehedi.hasan@gmail.com",
+    "days_since_contact": 15,
+    "status": "overdue",
+    "tags": ["old friend", "school"],
+    "bio": "Old school friend. We reconnected recently after years.",
+    "goal": 14,
+    "next_due_date": "2026-04-08"
+  },
+  {
+    "id": 9,
+    "name": "Sadia Akter",
+    "picture": "https://randomuser.me/api/portraits/women/51.jpg",
+    "email": "sadia.akter@gmail.com",
+    "days_since_contact": 7,
+    "status": "on-track",
+    "tags": ["office friend", "work"],
+    "bio": "Work colleague who makes office life much more enjoyable.",
+    "goal": 10,
+    "next_due_date": "2026-04-19"
+  },
+  {
+    "id": 10,
+    "name": "Imran Hossain",
+    "picture": "https://randomuser.me/api/portraits/men/61.jpg",
+    "email": "imran.hossain@gmail.com",
+    "days_since_contact": 20,
+    "status": "overdue",
+    "tags": ["sports", "friend"],
+    "bio": "Football friend from local club. We play every weekend when free.",
+    "goal": 14,
+    "next_due_date": "2026-04-06"
+  }
+]
