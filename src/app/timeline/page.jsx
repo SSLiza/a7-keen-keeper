@@ -46,7 +46,7 @@ export default function TimelinePage() {
 
 
   return (
-    <main className="min-h-screen bg-gray-50 dark:bg-gray-900 py-12">
+    <main className=" bg-gray-50 dark:bg-gray-900 py-12">
       <div className="max-w-2xl mx-auto px-4">
 
         {/* Header */}
