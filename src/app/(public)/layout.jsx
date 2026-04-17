@@ -1,15 +1,9 @@
-// import Navbar from "@/components/shared/navbar/Navbar";
-
+import { FriendProvider } from "@/context/FriendContext";
 
 const PublicLayout = ({ children }) => {
-    
-  return (
-    <div>
-      {/* <Navbar/> */}
-      {children}
-      
-    </div>
-  );
+  return <FriendProvider>
+    {children}
+  </FriendProvider>;
 };
 
 export default PublicLayout;
