@@ -34,11 +34,9 @@ export default function TimelinePage() {
   );
 }, [timeline, filter]);
 
-  const sortedTimeline = useMemo(() => {
-    return [...filteredTimeline].sort(
-      (a, b) => new Date(b.date) - new Date(a.date)
-    );
-  }, [filteredTimeline]);
+const sortedTimeline = [...filteredTimeline].sort(
+  (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+);
 
   const filterOptions = ["all", "call", "text", "video"];
 

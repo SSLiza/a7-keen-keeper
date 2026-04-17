@@ -9,7 +9,7 @@ const MyLink = ({ href, children }) => {
   return (
     <Link
       href={href}
-      className={`font-semibold ${pathname === href ? "btn bg-green-950 text-white rounded-xl text-center" : "btn"}`}
+      className={`font-semibold ${pathname === href ? "btn bg-green-950 text-white rounded-xl text-center" : "bg-white text-black flex gap-1 items-center justify-between"}`}
     >
       {children}
     </Link>

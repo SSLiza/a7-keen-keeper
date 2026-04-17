@@ -1,37 +1,61 @@
 "use client";
 
-import { Phone, MessageSquare, Video } from "lucide-react";
-import toast from "react-hot-toast";
-import { useFriend } from "@/context/FriendContext";
+import { toast } from "react-hot-toast";
+import { BsChatSquareText } from "react-icons/bs";
+import { LuPhoneCall } from "react-icons/lu";
+import { RiVideoOnFill } from "react-icons/ri";
 
-export default function FriendActions({ friend }) {
-  const { addTimelineEntry } = useFriend();
+const FriendActions = ({ friend }) => {
 
-  const handleInteraction = (type) => {
-    addTimelineEntry(type, friend.name);
+  const handleAction = (type) => {
+    const stored = JSON.parse(localStorage.getItem("interactions")) || {};
 
-    const messages = {
-      Call: `📞 Called ${friend.name}`,
-      Text: `💬 Texted ${friend.name}`,
-      Video: `🎥 Video call with ${friend.name}`,
+    const friendHistory = stored[friend.id] || [];
+
+    const newEntry = {
+      type,
+      date: new Date().toISOString(),
     };
 
-    toast.success(messages[type]);
+    const updated = {
+      ...stored,
+      [friend.id]: [newEntry, ...friendHistory],
+    };
+
+    localStorage.setItem("interactions", JSON.stringify(updated));
+
+    toast.success(`${type} with ${friend.name}`);
+
+    window.dispatchEvent(new Event("interactionUpdated"));
   };
 
   return (
-    <div className="grid grid-cols-3 gap-4 mt-6">
-      <button onClick={() => handleInteraction("Call")}>
-        <Phone /> Call
+    <>
+      <button
+        onClick={() => handleAction("Call")}
+        className="bg-white rounded-2xl p-4 border border-gray-200 flex flex-col items-center justify-center gap-2 hover:bg-gray-50 transition"
+      >
+        <LuPhoneCall className="text-lg text-gray-600" />
+        <span className="text-sm text-gray-700">Call</span>
       </button>
 
-      <button onClick={() => handleInteraction("Text")}>
-        <MessageSquare /> Text
+      <button
+        onClick={() => handleAction("Text")}
+        className="bg-white rounded-2xl p-4 border border-gray-200 flex flex-col items-center justify-center gap-2 hover:bg-gray-50 transition"
+      >
+        <BsChatSquareText className="text-lg text-gray-600" />
+        <span className="text-sm text-gray-700">Text</span>
       </button>
 
-      <button onClick={() => handleInteraction("Video")}>
-        <Video /> Video
+      <button
+        onClick={() => handleAction("Video")}
+        className="bg-white rounded-2xl p-4 border border-gray-200 flex flex-col items-center justify-center gap-2 hover:bg-gray-50 transition"
+      >
+        <RiVideoOnFill className="text-lg text-gray-600" />
+        <span className="text-sm text-gray-700">Video</span>
       </button>
-    </div>
+    </>
   );
-}
+};
+
+export default FriendActions;
