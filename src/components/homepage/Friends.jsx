@@ -22,7 +22,7 @@ const FriendsPage = async () => {
 
 
   return (
-    <div className="px-30 md:40 lg:px-62 bg-white pt-4">
+    <div className="px-15 md:30 lg:px-62 bg-white pt-4">
       {/* Stats */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         {stats.map((item, i) => (
