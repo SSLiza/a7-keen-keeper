@@ -1,5 +1,7 @@
 "use client";
 
+import { FriendContext, useFriend } from "@/context/FriendContext";
+import { useContext } from "react";
 import { toast } from "react-hot-toast";
 import { BsChatSquareText } from "react-icons/bs";
 import { LuPhoneCall } from "react-icons/lu";
@@ -7,27 +9,16 @@ import { RiVideoOnFill } from "react-icons/ri";
 
 const FriendActions = ({ friend }) => {
 
-  const handleAction = (type) => {
-    const stored = JSON.parse(localStorage.getItem("interactions")) || {};
+  // const { addTimelineEntry } = useFriend();
+  const {timeline,setTimeline}= useContext(FriendContext)
+  console.log(timeline,"timeline")
 
-    const friendHistory = stored[friend.id] || [];
+ const handleAction = (type) => {
+  console.log("Handle install now");
+  setTimeline([...timeline,friend])
 
-    const newEntry = {
-      type,
-      date: new Date().toISOString(),
-    };
-
-    const updated = {
-      ...stored,
-      [friend.id]: [newEntry, ...friendHistory],
-    };
-
-    localStorage.setItem("interactions", JSON.stringify(updated));
-
-    toast.success(`${type} with ${friend.name}`);
-
-    window.dispatchEvent(new Event("interactionUpdated"));
-  };
+  toast.success(`${type} with ${friend.name}`);
+};
 
   return (
     <>

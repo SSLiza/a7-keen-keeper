@@ -35,7 +35,7 @@ const Navbar = () => {
         />
       </div>
       <div className="flex gap-2">
-        <div className="dropdown dropdown-end flex gap-4">
+        <div className="flex gap-2 md:gap-4">
           {navItems.map((item, index) => (
             // Client component
             <MyLink key={index} href={item.path}>

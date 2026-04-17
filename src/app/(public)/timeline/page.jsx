@@ -1,15 +1,17 @@
 "use client";
 
 // import { useFriend } from "../../../context/FriendContext";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useContext } from "react";
 import { Phone, MessageSquare, Video, ChevronDown } from "lucide-react";
 import Link from "next/link";
-import { useFriend } from "@/context/FriendContext";
+import { FriendContext } from "@/context/FriendContext";
 
 
 
 export default function TimelinePage() {
- const { timeline } = useFriend();
+ const { timeline} = useContext(FriendContext);
+
+console.log(timeline)
 
   const [filter, setFilter] = useState("all");
   const [open, setOpen] = useState(false);
@@ -26,20 +28,19 @@ export default function TimelinePage() {
         return null;
     }
   };
-
+  
  const filteredTimeline = useMemo(() => {
   if (filter === "all") return timeline || [];
   return (timeline || []).filter(
-    (entry) => entry.type.toLowerCase() === filter.toLowerCase()
+    (entry) => entry.type?.toLowerCase() === filter.toLowerCase()
   );
 }, [timeline, filter]);
-
+if (filter === "all") return timeline || [];
 const sortedTimeline = [...filteredTimeline].sort(
   (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
 );
 
   const filterOptions = ["all", "call", "text", "video"];
-
   
 
   return (

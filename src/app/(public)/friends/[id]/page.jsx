@@ -5,7 +5,6 @@ import FriendActions from "../FriendActions";
 import { LiaSnapchatGhost } from "react-icons/lia";
 import { FaArchive } from "react-icons/fa";
 import { AiOutlineDelete } from "react-icons/ai";
-import RecentInteractions from "../RecentInteraction";
 
 const friendsPromise = async () => {
   const res = await fetch("https://a7-keen-keeper-tau.vercel.app/data.json", {
@@ -162,11 +161,6 @@ const FriendDetailsPage = async ({ params }) => {
             <div className="grid grid-cols-3 gap-3">
               <FriendActions friend={friend} />
             </div>
-          </div>
-
-          {/* RECENT INTERACTIONS */}
-          <div className="space-y-3">
-            <RecentInteractions friendId={friend.id} />
           </div>
 
         </div>
