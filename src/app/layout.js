@@ -6,6 +6,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Toaster } from "react-hot-toast";
 import { FriendProvider } from "@/context/FriendContext";
+import Home from "./page";
 
 
 const geistSans = Geist({
@@ -29,7 +30,7 @@ export default function RootLayout({ children }) {
         <FriendProvider>
           <Navbar />
           {children}
-        <Footer />
+          <Footer />
         </FriendProvider>
         <Toaster position="top-right" />
       </body>

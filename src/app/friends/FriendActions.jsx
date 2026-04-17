@@ -14,9 +14,13 @@ const FriendActions = ({ friend }) => {
   console.log(timeline,"timeline")
 
  const handleAction = (type) => {
-  console.log("Handle install now");
-  setTimeline([...timeline,friend])
+  const newEntry = {
+    name: friend.name,
+    type: type, // "Call" | "Text" | "Video"
+    date: new Date().toISOString(),
+  };
 
+setTimeline((prev) => [...prev, newEntry]);
   toast.success(`${type} with ${friend.name}`);
 };
 

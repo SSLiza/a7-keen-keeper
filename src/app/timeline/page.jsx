@@ -9,15 +9,15 @@ import { FriendContext } from "@/context/FriendContext";
 
 
 export default function TimelinePage() {
- const { timeline} = useContext(FriendContext);
+  const { timeline } = useContext(FriendContext);
 
-console.log(timeline)
+  console.log(timeline)
 
   const [filter, setFilter] = useState("all");
   const [open, setOpen] = useState(false);
 
   const getIcon = (type) => {
-    switch (type.toLowerCase()) {
+    switch (type?.toLowerCase()) {
       case "call":
         return <Phone size={20} className="text-green-600" />;
       case "text":
@@ -28,20 +28,22 @@ console.log(timeline)
         return null;
     }
   };
-  
- const filteredTimeline = useMemo(() => {
-  if (filter === "all") return timeline || [];
-  return (timeline || []).filter(
-    (entry) => entry.type?.toLowerCase() === filter.toLowerCase()
-  );
-}, [timeline, filter]);
-if (filter === "all") return timeline || [];
-const sortedTimeline = [...filteredTimeline].sort(
-  (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-);
+
+  const sortedTimeline = useMemo(() => {
+    const filtered =
+      filter === "all"
+        ? timeline || []
+        : (timeline || []).filter(
+          (entry) => entry.type?.toLowerCase() === filter.toLowerCase()
+        );
+
+    return [...filtered].sort(
+      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+    );
+  }, [timeline, filter]);
 
   const filterOptions = ["all", "call", "text", "video"];
-  
+
 
   return (
     <main className="min-h-screen bg-gray-50 dark:bg-gray-900 py-12">
@@ -98,9 +100,9 @@ const sortedTimeline = [...filteredTimeline].sort(
           </div>
         ) : (
           <div className="space-y-4">
-            {sortedTimeline.map((entry) => (
+            {sortedTimeline.map((entry, index) => (
               <div
-                key={entry.id}
+                key={index}
                 className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 flex items-start gap-4"
               >
                 {/* Icon */}
@@ -109,22 +111,22 @@ const sortedTimeline = [...filteredTimeline].sort(
                 {/* Content */}
                 <div className="flex-grow">
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                    {entry.title}
+                    {entry.type} with {entry.name}
                   </h3>
+
                   <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-                    {entry.date}
+                    {new Date(entry.date).toLocaleDateString()}
                   </p>
                 </div>
 
                 {/* Badge */}
                 <span
-                  className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                    entry.type === "Call"
-                      ? "bg-green-100 text-green-800"
-                      : entry.type === "Text"
+                  className={`px-3 py-1 rounded-full text-xs font-semibold ${entry.type === "Call"
+                    ? "bg-green-100 text-green-800"
+                    : entry.type === "Text"
                       ? "bg-blue-100 text-blue-800"
                       : "bg-purple-100 text-purple-800"
-                  }`}
+                    }`}
                 >
                   {entry.type}
                 </span>
